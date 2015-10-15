@@ -2,6 +2,8 @@
     <p class='text-center'>Step 2</p>
     <div style='padding:0 20px;'>
         <a class='btn btn-default' ui-sref="home.step1">Previous</a>
-        <a class='btn btn-primary pull-right' ng-click="finishSetup()">Done</a>
+        <a class='btn btn-primary pull-right'
+           ng-click="$parent.msg='Setup completed !'"
+           ui-sref="home">Done</a>
     </div>
 </div>

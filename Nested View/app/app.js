@@ -4,7 +4,7 @@ app.config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/home');
     $stateProvider
         .state('home', {
-            url: "/home:finished",
+            url: "/home",
             //abstract: true,
             templateUrl:'app/partials/home.template.html',
             controller:'homeController'
@@ -15,8 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider){
         })
         .state('home.step2', {
             url: "/step2",
-            templateUrl:'app/partials/step2.template.html',
-            controller:'stepFinishController'
+            templateUrl:'app/partials/step2.template.html'
         })
         .state('about', {
             url: "/about",
@@ -26,25 +25,11 @@ app.config(function($stateProvider, $urlRouterProvider){
 });
 
 app.controller('homeController',
-    function($scope,$stateParams){
+    function($scope){
 
         $scope.msg="Welcome !"
 
-        if($stateParams.finished==='Y') {
-            $scope.msg="Setup completed !"
-        }
     });
 
-app.controller('stepFinishController',
-    function($scope,$state,$stateParams){
-
-        $scope.finishSetup=function(){
-
-            $stateParams.finished='Y';
-
-            $state.transitionTo('home',$stateParams,{reload:true});
-        };
-
-    });
 
 
